@@ -1,0 +1,2 @@
+# Ignore .conda directory and files
+.conda/

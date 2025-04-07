@@ -75,5 +75,5 @@ These libraries power the neural network, manage its learning process, and help 
 
 ## 🖨️ Output Example
 
-After successful training, the model produces new text such as:
+After successful training, the model produces new text data.
 
