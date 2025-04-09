@@ -1,0 +1,222 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "greetings", "good morning"],
+      "responses": [
+        "Hello! How can I help with Dynamics 365 Commerce today?",
+        "Hi there! Ask me about Commerce setup, orders, or payments."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": [
+        "I specialize in Dynamics 365 Commerce. Try questions like 'How to set up POS?' or 'Troubleshoot payments?'",
+        "Could you rephrase your Commerce question? I can help with setup, orders, and integrations."
+      ]
+    },
+    {
+      "tag": "setup_overview",
+      "patterns": [
+        "How to setup Dynamics 365 Commerce?",
+        "Implementation steps for Commerce",
+        "Commerce deployment guide",
+        "Technical prerequisites for Commerce"
+      ],
+      "responses": [
+        "D365 Commerce setup involves 5 key phases: 1) Environment provisioning 2) Channel configuration 3) POS setup 4) Payment integration 5) Go-live. Which phase do you need help with?",
+        "Start with the Commerce Scale Unit deployment, then configure HQ->Channel mapping. Need the detailed checklist?"
+      ]
+    },
+    {
+      "tag": "environment_provisioning",
+      "patterns": [
+        "How to provision Commerce environment?",
+        "Create LCS project for Commerce",
+        "Deploy Commerce Scale Unit",
+        "Hardware requirements for Commerce"
+      ],
+      "responses": [
+        "Step-by-step provisioning:\n1. Create LCS project\n2. Deploy Azure-hosted environment (min 16GB RAM)\n3. Install Commerce Scale Unit\n4. Run topology validation\n\nNeed the PowerShell script for automated deployment?",
+        "Commerce components require:\n- 4 vCPU cores minimum\n- SSD storage\n- Azure East US/West Europe for best latency\n\nI can share the sizing calculator."
+      ]
+    },
+    {
+      "tag": "sales_order_capture",
+      "patterns": [
+        "How to capture sales orders in POS?",
+        "Create order in Modern POS",
+        "Customer order workflow",
+        "Save cart as order"
+      ],
+      "responses": [
+        "To capture sales orders:\n1. Start transaction in POS\n2. Select 'Create customer order'\n3. Choose fulfillment method (pickup/ship)\n4. Apply deposits if required\n5. Submit to HQ\n\nNeed the order capture flow diagram?",
+        "Key order types:\n- Pickup in store\n- Ship to customer\n- Layaway\n- Quote-to-order\n\nI can share the order type matrix."
+      ]
+    },
+    {
+      "tag": "void_transactions",
+      "patterns": [
+        "How to void a sale?",
+        "Cancel POS transaction",
+        "Reverse payment",
+        "Delete order line"
+      ],
+      "responses": [
+        "Voiding process:\n1. Locate transaction in shift log\n2. Select 'Void' with manager approval\n3. Process reversal payment\n4. Print void receipt\n\nNote: Voids must occur within same business day.",
+        "Restrictions apply:\n- Requires 'Void Transactions' permission\n- Original tender must be present for refund\n- Captured orders need HQ approval\n\nI can share the void authorization form."
+      ]
+    },
+    {
+      "tag": "ecom_platform",
+      "patterns": [
+        "Configure Commerce site builder",
+        "Setup headless storefront",
+        "E-commerce channel mapping",
+        "Product content management"
+      ],
+      "responses": [
+        "Site builder steps:\n1. Create site in Commerce HQ\n2. Design page fragments\n3. Configure theme\n4. Publish to Azure CDN\n\nNeed the UX best practices guide?",
+        "For headless implementations:\n1. Expose Commerce APIs\n2. Build React/Vue storefront\n3. Configure OAuth\n4. Implement checkout webhooks\n\nI can share the PWA starter kit."
+      ]
+    },
+    {
+      "tag": "storefront_theming",
+      "patterns": [
+        "Customize Commerce storefront theme",
+        "Modify CSS/Layout in site builder",
+        "Branding customization",
+        "Override default components"
+      ],
+      "responses": [
+        "Theming approach:\n1. Create theme extension module\n2. Override variables in theme.scss\n3. Add custom Liquid templates\n4. Deploy via Azure DevOps\n\nRequired: Node.js 16+, Webpack 5\n\nNeed the theme starter kit?",
+        "For component-level changes:\n1. Fork from GitHub/Fast Starter\n2. Modify React components\n3. Configure module override\n4. Test in isolated environment\n\nI have the component override cheatsheet."
+      ]
+    },
+    {
+      "tag": "payment_integration",
+      "patterns": [
+        "Setup payment connector",
+        "Configure Adyen/Worldpay",
+        "PCI compliance for POS",
+        "Test payment processing"
+      ],
+      "responses": [
+        "Payment steps:\n1. Create payment connector in HQ\n2. Configure merchant account\n3. Deploy payment SDK\n4. Run test transactions\n\nAlways use TLS 1.2+ for PCI compliance. Need the test card numbers?",
+        "For Adyen:\n1. Get API key from Adyen portal\n2. Configure Commerce Payment Connector\n3. Set up webhooks\n4. Validate 3DSecure flows\n\nI can share the Adyen-COM mapping doc."
+      ]
+    },
+    {
+      "tag": "shipping_integration",
+      "patterns": [
+        "Connect FedEx/UPS",
+        "Setup shipping carriers",
+        "Print shipping labels",
+        "Real-time rate calculation"
+      ],
+      "responses": [
+        "Carrier setup:\n1. Configure in Transportation management\n2. Enter API credentials\n3. Test connection\n4. Assign to fulfillment groups\n\nNeed the carrier API documentation?",
+        "For label printing:\n1. Install thermal printer drivers\n2. Configure label templates\n3. Set up manifest workflow\n4. Test end-to-end\n\nI have the ZPL label samples."
+      ]
+    },
+    {
+      "tag": "csu_customization",
+      "patterns": [
+        "How to customize Commerce Scale Unit?",
+        "Extend CSU functionality",
+        "Add custom APIs to Retail Server",
+        "Modify business logic in CSU"
+      ],
+      "responses": [
+        "CSU customization requires:\n1. Commerce SDK (v10.0.21+)\n2. Azure DevOps build pipeline\n3. Extension packaging framework\n\nKey files to modify:\n- CommerceRuntime.Ext.config\n- RetailServer.Ext.config\n\nNeed the CSU extension template?",
+        "Step-by-step CSU mods:\n1. Clone CSU source from LCS\n2. Implement IRequestHandler extensions\n3. Package as .ppkg\n4. Deploy via LCS\n\nWarning: Always test in sandbox first! I can share the debugging checklist."
+      ]
+    },
+    {
+      "tag": "sdk_comparison",
+      "patterns": [
+        "Commerce SDK vs Retail SDK",
+        "Migrate from Retail SDK",
+        "Deprecated Retail SDK features",
+        "New Commerce SDK capabilities"
+      ],
+      "responses": [
+        "Key differences:\n\n| Feature | Commerce SDK | Retail SDK (Deprecated) |\n|---------|-------------|------------------------|\n| Architecture | Microservices | Monolithic |\n| Extensibility | Azure DevOps pipelines | X++ hotfixes |\n| POS Integration | Modern POS/Cloud POS only | Hybrid POS support |\n\nFull migration guide available.",
+        "Critical changes:\n- RetailSDK\\POS now in CommerceSDK\\POS\n- CRT extensions → CommerceRuntime plugins\n- Package via PPKG not AXDeploy\n\nI can analyze your existing extensions for compatibility."
+      ]
+    },
+    {
+      "tag": "multi_location_inventory",
+      "patterns": [
+        "Inventory visibility setup",
+        "Stock allocation rules",
+        "Cross-location fulfillment",
+        "Inventory reservations"
+      ],
+      "responses": [
+        "Inventory configuration:\n1. Define fulfillment groups\n2. Set lead times\n3. Configure threshold rules\n4. Enable real-time lookup\n\nNeed the inventory priority matrix?",
+        "For allocations:\n1. Create reservation hierarchy\n2. Set sellable inventory rules\n3. Configure safety stock\n4. Test emergency transfers\n\nI can share the allocation scenario workbook."
+      ]
+    },
+    {
+      "tag": "order_fulfillment",
+      "patterns": [
+        "Process ship-to-home orders",
+        "Fulfillment workflow",
+        "Warehouse picking",
+        "Packing station setup"
+      ],
+      "responses": [
+        "Fulfillment flow:\n1. Order appears in POS/warehouse app\n2. Pick items with barcode scan\n3. Pack with shipping method\n4. Mark as shipped\n\nNeed the pick-pack-ship checklist?",
+        "Advanced options:\n- Wave picking\n- Containerization\n- Automated shipping manifests\n- Delivery appointment scheduling\n\nI have the WMS integration guide."
+      ]
+    },
+    {
+      "tag": "data_sync_issues",
+      "patterns": [
+        "P-job failures",
+        "Channel database not syncing",
+        "Products not appearing in POS",
+        "Async service errors"
+      ],
+      "responses": [
+        "Troubleshooting sync issues:\n1. Check Distribution Schedule status\n2. Validate channel database health\n3. Review P-job error logs\n4. Run manual sync via 'Download session'\n\nNeed the P-job error code reference?",
+        "Common fixes:\n- Reinitialize channel database\n- Restart Async Client Service\n- Verify SQL replication\n- Check firewall ports 443,9354\n\nI can guide you through log analysis."
+      ]
+    },
+    {
+      "tag": "performance_optimization",
+      "patterns": [
+        "POS slow performance",
+        "Optimize Commerce Scale Unit",
+        "Database tuning for Retail",
+        "Improve sync speeds"
+      ],
+      "responses": [
+        "Performance checklist:\n1. Enable Redis cache\n2. Optimize SQL indexes\n3. Scale CSU vertically\n4. Schedule P-jobs during off-hours\n\nNeed the query optimization guide?",
+        "For POS slowness:\n1. Check hardware specs\n2. Limit offline transaction count\n3. Compact local DB\n4. Update Commerce binaries\n\nI have the performance benchmark tool."
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "2.3",
+    "last_updated": "2023-11-20",
+    "coverage_areas": [
+      "Technical Setup",
+      "Order Management",
+      "Payment Processing",
+      "Custom Development",
+      "E-Commerce",
+      "Inventory",
+      "Shipping",
+      "POS Operations"
+    ],
+    "recommended_integrations": [
+      "LCS APIs",
+      "Commerce Scale Unit SDK",
+      "Retail Server Extensions",
+      "Channel DB Direct Access"
+    ]
+  }
+}

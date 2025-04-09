@@ -1,2 +1,3 @@
-# Ignore .conda directory and files
-.conda/
+.conda
+__pycache__
+data.pth
