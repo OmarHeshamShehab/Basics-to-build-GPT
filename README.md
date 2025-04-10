@@ -17,7 +17,7 @@ python -c "import nltk; nltk.download('punkt')"
 ## File Structure
 
 .
-├── train.py           # Model training script
+├── train.ipynb       # Model training script
 ├── chat.py           # Interactive chat interface
 ├── model.py          # Neural network architecture
 ├── nltk_utils.py     # NLP processing utilities
