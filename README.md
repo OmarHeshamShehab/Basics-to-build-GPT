@@ -81,7 +81,6 @@ Datasets are sourced from the [Titanic competition on Kaggle](https://www.kaggle
 - matplotlib
 - seaborn
 - scikit-learn
-- xgboost
 
 Install dependencies with:
 
